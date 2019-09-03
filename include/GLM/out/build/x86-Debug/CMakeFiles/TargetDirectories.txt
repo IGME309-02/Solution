@@ -1,0 +1,3 @@
+D:/Users/kleyn/Documents/Visual Studio 2019/Projects/Solution/include/GLM/out/build/x86-Debug/CMakeFiles/glm.dir
+D:/Users/kleyn/Documents/Visual Studio 2019/Projects/Solution/include/GLM/out/build/x86-Debug/CMakeFiles/edit_cache.dir
+D:/Users/kleyn/Documents/Visual Studio 2019/Projects/Solution/include/GLM/out/build/x86-Debug/CMakeFiles/rebuild_cache.dir

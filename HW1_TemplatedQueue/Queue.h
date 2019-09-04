@@ -152,6 +152,7 @@ void Queue<T>::Push(T data)
 	{
 		QueueNode<T>* currentNode = this->GetTail();
 
+		// Move to the first element adjacent to where the node needs to be inserted
 		while ((currentNode->GetData() > pNewNode->GetData()) &&
 			(currentNode != this->GetHead()))
 		{
@@ -165,16 +166,18 @@ void Queue<T>::Push(T data)
 			}
 		}
 
+		// Depending on whether the adjacent node is a head, tail or none, use different sections
+		// of code to insert the new node.
 		if (currentNode == this->GetTail())
-		{
-			if (pNewNode->GetData() > this->GetTail()->GetData())
+		{			
+			if (pNewNode->GetData() > this->GetTail()->GetData())		// If the new node will be the new tail
 			{
 				pNewNode->SetPrevious(nullptr);
 				pNewNode->SetNext(this->GetTail());
 				this->GetTail()->SetPrevious(pNewNode);
 				this->SetTail(pNewNode);
 			}
-			else
+			else														// If the node will be adjacent to the current tail
 			{
 				pNewNode->SetPrevious(this->GetTail());				
 				pNewNode->SetNext(this->GetTail()->GetNext());
@@ -189,14 +192,14 @@ void Queue<T>::Push(T data)
 		}
 		else if (currentNode == this->GetHead())
 		{
-			if (pNewNode->GetData() < this->GetHead()->GetData())
+			if (pNewNode->GetData() < this->GetHead()->GetData())		// If the new node will be the new head
 			{
 				pNewNode->SetNext(nullptr);
 				pNewNode->SetPrevious(this->GetHead());
 				this->GetHead()->SetNext(pNewNode);
 				this->SetHead(pNewNode);
 			}
-			else
+			else														// If the new node will be adjacent to the current head
 			{
 				pNewNode->SetNext(this->GetHead());
 				pNewNode->SetPrevious(this->GetHead()->GetPrevious());
@@ -210,7 +213,7 @@ void Queue<T>::Push(T data)
 			}
 			
 		}
-		else
+		else															// If the new node is somewhere in the middle of the queue
 		{
 			currentNode->GetPrevious()->SetNext(pNewNode);
 			pNewNode->SetPrevious(currentNode->GetPrevious());

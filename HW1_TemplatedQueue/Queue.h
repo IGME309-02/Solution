@@ -24,7 +24,7 @@ class Queue
 public:
 
 	Queue();
-	Queue(const Queue<T> &queue);
+	Queue(Queue<T> &queue);
 	//Queue<T>& operator=(const Queue<T> &queue);	
 
     T Peek();
@@ -62,13 +62,15 @@ Queue<T>::Queue()
 
 // Copy Constructor
 template <class T>
-Queue<T>::Queue(const Queue& queue)
+Queue<T>::Queue(Queue& queue)
 {	
-	//this->SetHead(queue->GetHead());
+	QueueNode<T>* node = queue.GetTail();
 
-	std::cout << "test";
+	while (node->GetData() != NULL) {
+		this->Push(node->GetData());
 
-	
+		node = node->GetNext();
+	}
 }
 
 //// Copy Assignment operator

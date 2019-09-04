@@ -125,8 +125,8 @@ void TestInts()
 	// Creating a copy of testQueue1 named testQueue2 using copy constructor
 	std::cout << "Creating a copy of testQueue1" << std::endl << std::endl;
 
-	//Queue<int> testQueue2 = testQueue1;
-	Queue<int> testQueue2;
+	Queue<int> testQueue2 = testQueue1;
+	//Queue<int> testQueue2;
 
 	// Pushing 5 big numbers onto testQueue1
 	std::cout << "Pushing 5 big numbers onto testQueue2" << std::endl << std::endl;

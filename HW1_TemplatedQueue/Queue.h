@@ -25,7 +25,7 @@ public:
 
 	Queue();
 	Queue(Queue<T> &queue);
-	//Queue<T>& operator=(const Queue<T> &queue);	
+	//Queue<T>& operator=(const Queue<T> &queue);
 
     T Peek();
 	void Push(T);
@@ -76,7 +76,7 @@ Queue<T>::Queue(Queue& queue)
 //// Copy Assignment operator
 //template <class T>
 //Queue<T>& Queue<T>::operator=(const Queue<T> &queue)
-//{
+//{	
 //	Queue<T> temp(queue);
 //	
 //	std::swap(this->head, temp.head);
@@ -167,27 +167,46 @@ void Queue<T>::Push(T data)
 
 		if (currentNode == this->GetTail())
 		{
-			pNewNode->SetPrevious(nullptr);
-			pNewNode->SetNext(currentNode);
-			currentNode->SetPrevious(pNewNode);
-			this->SetTail(pNewNode);
+			if (pNewNode->GetData() > this->GetTail()->GetData())
+			{
+				pNewNode->SetPrevious(nullptr);
+				pNewNode->SetNext(this->GetTail());
+				this->GetTail()->SetPrevious(pNewNode);
+				this->SetTail(pNewNode);
+			}
+			else
+			{
+				pNewNode->SetPrevious(this->GetTail());				
+				pNewNode->SetNext(this->GetTail()->GetNext());
+				this->GetTail()->GetNext()->SetPrevious(pNewNode);
+				this->GetTail()->SetNext(pNewNode);
+
+				if (pNewNode->GetNext() == nullptr)
+				{
+					this->SetHead(pNewNode);
+				}				
+			}
 		}
 		else if (currentNode == this->GetHead())
 		{
-			if ((currentNode->GetData() < this->GetHead()->GetData()) ||
-				(pNewNode->GetData() < currentNode->GetData()))
+			if (pNewNode->GetData() < this->GetHead()->GetData())
 			{
 				pNewNode->SetNext(nullptr);
-				pNewNode->SetPrevious(currentNode);
-				currentNode->SetNext(pNewNode);
+				pNewNode->SetPrevious(this->GetHead());
+				this->GetHead()->SetNext(pNewNode);
 				this->SetHead(pNewNode);
 			}
 			else
 			{
 				pNewNode->SetNext(this->GetHead());
-				this->GetHead()->GetPrevious()->SetNext(pNewNode);
 				pNewNode->SetPrevious(this->GetHead()->GetPrevious());
+				this->GetHead()->GetPrevious()->SetNext(pNewNode);
 				this->GetHead()->SetPrevious(pNewNode);
+
+				if (pNewNode->GetPrevious() == nullptr)
+				{
+					this->SetTail(pNewNode);
+				}
 			}
 			
 		}

@@ -70,7 +70,7 @@ Queue<T>::Queue(const Queue& queue)
 
 	
 }
-//
+
 //// Copy Assignment operator
 //template <class T>
 //Queue<T>& Queue<T>::operator=(const Queue<T> &queue)
@@ -118,7 +118,7 @@ int Queue<T>::GetSize()
 template <class T>
 bool Queue<T>::IsEmpty()
 {
-	if (this->GetSize() == 0)
+	if ((this->GetSize() == 0) || (this->GetSize() == NULL))
 	{
 		return true;
 	}

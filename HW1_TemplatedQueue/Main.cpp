@@ -91,8 +91,8 @@ void TestInts()
 	// Creating the first test queue with INT data type
 	Queue<int> testQueue1;
 
-	// Enqueueing 5 numbers onto the queue
-	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
+	// Pushing 5 numbers onto the queue
+	std::cout << "Pushing number into testQueue1" << std::endl << std::endl;
 
 	std::cout << "    --> enqueueing : ";
 	for (int i = 0; i < 5; i++)
@@ -128,8 +128,8 @@ void TestInts()
 	//Queue<int> testQueue2 = testQueue1;
 	Queue<int> testQueue2;
 
-	// Enqueueing 5 big numbers onto testQueue1
-	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
+	// Pushing 5 big numbers onto testQueue1
+	std::cout << "Pushing 5 big numbers onto testQueue2" << std::endl << std::endl;
 
 	std::cout << "    --> enqueueing : ";
 	for (int i = 0; i < 5; i++)
@@ -163,8 +163,8 @@ void TestInts()
 	//Queue<int> testQueue4;
 	//testQueue4 = testQueue2;
 
-	//// Enqueueing 5 even values onto testQueue3
-	//std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
+	//// Pushing 5 even values onto testQueue3
+	//std::cout << "Pushing numbers into the testQueue3" << std::endl << std::endl;
 
 	//std::cout << "    --> enqueueing : ";
 	//for (int i = (sizeof(TemplatedQueue::intEven) / sizeof(int)); i > 5; i--)
@@ -192,8 +192,8 @@ void TestInts()
 	//testQueue4.Print("testQueue4 :");
 
 	std::cout << std::endl;
-	// Dequeueing everything from testQueue1
-	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
+	// Popping everything from testQueue1
+	std::cout << "Popping everything from testQueue1" << std::endl << std::endl;
 
 	std::cout << "    --> dequeueing : ";
 	while (!testQueue1.IsEmpty())
@@ -205,8 +205,8 @@ void TestInts()
 
 	std::cout << "testQueue1 is now empty" << std::endl << std::endl;
 
-	// Dequeueing everything from testQueue3
-	std::cout << "Dequeueing everything from testQueue2" << std::endl << std::endl;
+	// Popping everything from testQueue3
+	std::cout << "Popping everything from testQueue2" << std::endl << std::endl;
 
 	std::cout << "    --> dequeueing : ";
 	while (!testQueue2.IsEmpty())
@@ -246,8 +246,8 @@ void TestInts()
 //	testQueue1.Print("testQueue1 :");
 //	std::cout << std::endl;
 //
-//	// Enqueueing 5 numbers onto the queue
-//	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
+//	// Pushing 5 numbers onto the queue
+//	std::cout << "Pushing number into testQueue1" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = 0; i < 5; i++)
@@ -293,8 +293,8 @@ void TestInts()
 //	testQueue1.Print("testQueue1 :");
 //	std::cout << std::endl;
 //
-//	// Enqueueing 5 big numbers onto testQueue1
-//	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
+//	// Pushing 5 big numbers onto testQueue1
+//	std::cout << "Pushing 5 big numbers onto testQueue2" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = 0; i < 5; i++)
@@ -328,8 +328,8 @@ void TestInts()
 //	Queue<float> testQueue4;
 //	testQueue4 = testQueue2;
 //
-//	// Enqueueing 5 even values onto testQueue3
-//	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
+//	// Pushing 5 even values onto testQueue3
+//	std::cout << "Pushing numbers into the testQueue3" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = (sizeof(TemplatedQueue::floatEven) / sizeof(int)); i > 5; i--)
@@ -376,8 +376,8 @@ void TestInts()
 //	testQueue4.Print("testQueue4 :");
 //
 //	std::cout << std::endl;
-//	// Dequeueing everything from testQueue1
-//	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
+//	// Popping everything from testQueue1
+//	std::cout << "Popping everything from testQueue1" << std::endl << std::endl;
 //
 //	std::cout << "    --> dequeueing : ";
 //	while (!testQueue1.IsEmpty())
@@ -402,8 +402,8 @@ void TestInts()
 //
 //	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
 //
-//	// Dequeueing everything from testQueue3
-//	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
+//	// Popping everything from testQueue3
+//	std::cout << "Popping everything from testQueue3" << std::endl << std::endl;
 //
 //	std::cout << "    --> dequeueing : ";
 //	while (!testQueue3.IsEmpty())
@@ -456,8 +456,8 @@ void TestInts()
 //	testQueue1.Print("testQueue1 :");
 //	std::cout << std::endl;
 //
-//	// Enqueueing 5 numbers onto the queue
-//	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
+//	// Pushing 5 numbers onto the queue
+//	std::cout << "Pushing number into testQueue1" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = 0; i < 5; i++)
@@ -503,8 +503,8 @@ void TestInts()
 //	testQueue1.Print("testQueue1 :");
 //	std::cout << std::endl;
 //
-//	// Enqueueing 5 big numbers onto testQueue1
-//	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
+//	// Pushing 5 big numbers onto testQueue1
+//	std::cout << "Pushing 5 big numbers onto testQueue2" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = 0; i < 5; i++)
@@ -538,8 +538,8 @@ void TestInts()
 //	Queue<char> testQueue4;
 //	testQueue4 = testQueue2;
 //
-//	// Enqueueing 5 even values onto testQueue3
-//	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
+//	// Pushing 5 even values onto testQueue3
+//	std::cout << "Pushing numbers into the testQueue3" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = sizeof(TemplatedQueue::charUpperA); i > 5; i--)
@@ -586,8 +586,8 @@ void TestInts()
 //	testQueue4.Print("testQueue4 :");
 //
 //	std::cout << std::endl;
-//	// Dequeueing everything from testQueue1
-//	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
+//	// Popping everything from testQueue1
+//	std::cout << "Popping everything from testQueue1" << std::endl << std::endl;
 //
 //	std::cout << "    --> dequeueing : ";
 //	while (!testQueue1.IsEmpty())
@@ -612,8 +612,8 @@ void TestInts()
 //
 //	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
 //
-//	// Dequeueing everything from testQueue3
-//	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
+//	// Popping everything from testQueue3
+//	std::cout << "Popping everything from testQueue3" << std::endl << std::endl;
 //
 //	std::cout << "    --> dequeueing : ";
 //	while (!testQueue3.IsEmpty())
@@ -666,8 +666,8 @@ void TestInts()
 //	testQueue1.Print("testQueue1 :");
 //	std::cout << std::endl;
 //
-//	// Enqueueing 5 numbers onto the queue
-//	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
+//	// Pushing 5 numbers onto the queue
+//	std::cout << "Pushing number into testQueue1" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = 0; i < 5; i++)
@@ -713,8 +713,8 @@ void TestInts()
 //	testQueue1.Print("testQueue1 :");
 //	std::cout << std::endl;
 //
-//	// Enqueueing 5 big numbers onto testQueue1
-//	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
+//	// Pushing 5 big numbers onto testQueue1
+//	std::cout << "Pushing 5 big numbers onto testQueue2" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = 0; i < 5; i++)
@@ -748,8 +748,8 @@ void TestInts()
 //	Queue<double> testQueue4;
 //	testQueue4 = testQueue2;
 //
-//	// Enqueueing 5 even values onto testQueue3
-//	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
+//	// Pushing 5 even values onto testQueue3
+//	std::cout << "Pushing numbers into the testQueue3" << std::endl << std::endl;
 //
 //	std::cout << "    --> enqueueing : ";
 //	for (int i = (sizeof(TemplatedQueue::doubleEven) / sizeof(double)); i > 5; i--)
@@ -796,8 +796,8 @@ void TestInts()
 //	testQueue4.Print("testQueue4 :");
 //
 //	std::cout << std::endl;
-//	// Dequeueing everything from testQueue1
-//	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
+//	// Popping everything from testQueue1
+//	std::cout << "Popping everything from testQueue1" << std::endl << std::endl;
 //
 //	std::cout << "    --> dequeueing : ";
 //	while (!testQueue1.IsEmpty())
@@ -822,8 +822,8 @@ void TestInts()
 //
 //	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
 //
-//	// Dequeueing everything from testQueue3
-//	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
+//	// Popping everything from testQueue3
+//	std::cout << "Popping everything from testQueue3" << std::endl << std::endl;
 //
 //	std::cout << "    --> dequeueing : ";
 //	while (!testQueue3.IsEmpty())

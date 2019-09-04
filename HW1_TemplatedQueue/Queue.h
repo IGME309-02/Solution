@@ -24,20 +24,18 @@ class Queue
 public:
 
 	Queue();
-	Queue(const Queue &queue);
-	Queue<T>& operator=(const Queue<T> &queue);
+	Queue(const Queue<T> &queue);
+	//Queue<T>& operator=(const Queue<T> &queue);	
 
-    void Push(T);
     T Peek();
-    T Pop();
-	void Enqueue(T);
-	T DequeueBack();
+	void Push(T);
+	T Pop();
 	void Print();
 	void Print(std::string);
     void SetHead(QueueNode<T>*);	
     QueueNode<T>* GetHead();
     void SetTail(QueueNode<T>*);	
-    QueueNode<T>* GetTail();	
+    QueueNode<T>* GetTail();
     int GetSize();
 	bool IsEmpty();
 
@@ -47,12 +45,12 @@ public:
     ~Queue();
 
 private:
-		
-    //std::list<QueueNode<T>*> queueList;	
+
     QueueNode<T>* head;
     QueueNode<T>* tail;
 
-	bool debugState = false;	
+	bool debugState = false;
+	int size = 0;
 };
 
 // Default Constructor
@@ -64,36 +62,26 @@ Queue<T>::Queue()
 
 // Copy Constructor
 template <class T>
-Queue<T>::Queue(const Queue<T> &queue)
-{
-	QueueNode<T>* currentNode = this->GetHead;
+Queue<T>::Queue(const Queue& queue)
+{	
+	//this->SetHead(queue->GetHead());
 
-	do
-	{
-		this->Push(currentNode->GetData());
-		currentNode - currentNode->nextNode;
+	std::cout << "test";
 
-	} while currentNode->NextNode != nullptr;
-
-	/*for (QueueNode<T>* node : queue.queueList)
-	{		
-		this->Push(node->GetData());
-	}*/
-}
-
-// Copy Assignment operator
-template <class T>
-Queue<T>& Queue<T>::operator=(const Queue<T> &queue)
-{
-	Queue<T> temp(queue);
 	
-	this->queueList.assign(temp.queueList.begin(), temp.queueList.end());
-	
-	std::swap(this->head, temp.head);
-	std::swap(this->tail, temp.tail);
-
-	return *this;
 }
+//
+//// Copy Assignment operator
+//template <class T>
+//Queue<T>& Queue<T>::operator=(const Queue<T> &queue)
+//{
+//	Queue<T> temp(queue);
+//	
+//	std::swap(this->head, temp.head);
+//	std::swap(this->tail, temp.tail);
+//
+//	return *this;
+//}
 
 // Getters and Setters
 template <class T>
@@ -123,14 +111,14 @@ QueueNode<T>* Queue<T>::GetTail()
 template <class T>
 int Queue<T>::GetSize()
 {
-    return this->queueList.size();
+	return this->size;
 }
 
 // Test if queue is empty
 template <class T>
 bool Queue<T>::IsEmpty()
 {
-	if (this->queueList.size() == 0)
+	if (this->GetSize() == 0)
 	{
 		return true;
 	}
@@ -140,69 +128,6 @@ bool Queue<T>::IsEmpty()
 	}
 }
 
-// Add a new element to the front of the queue
-template <class T>
-void Queue<T>::Push(T data)
-{
-	QueueNode<T>* pNewNode = new QueueNode<T>(data);	
-    
-    if (this->queueList.size() == 0)
-    {
-		this->SetHead(pNewNode);
-        this->SetTail(pNewNode);
-        
-		pNewNode->SetPrevious(nullptr);
-		this->queueList.push_front(pNewNode);
-    }
-    else
-    {
-		typename std::list<QueueNode<T>*>::iterator currentIndex = this->queueList.begin();
-		int counter = 0;
-
-		for (QueueNode<T>* node : this->queueList)
-		{			
-			if (pNewNode->GetData() > node->GetData())
-			{
-				if (this->GetTail() == node)
-				{
-					pNewNode->SetPrevious(nullptr);
-					pNewNode->SetNext(node);
-					node->SetPrevious(pNewNode);
-					this->SetTail(pNewNode);
-
-					this->queueList.push_back(pNewNode);
-
-					break;
-				}
-				else if (this->GetHead() == node)
-				{
-					node->SetNext(pNewNode);
-					node->GetNext()->SetPrevious(node);
-					this->SetHead(pNewNode);
-
-					this->queueList.push_front(pNewNode);
-
-					break;
-				}
-				else
-				{
-					node->GetPrevious()->SetNext(pNewNode);
-					pNewNode->SetPrevious(node->GetPrevious());
-					pNewNode->SetNext(node);
-					node->SetPrevious(pNewNode);
-
-					this->queueList.insert(currentIndex, pNewNode);
-				
-					break;
-				}
-			}
-
-			currentIndex++;
-			counter++;
-		}
-    }
-}
-
 // View the item on top of the queue
 template <class T>
 T Queue<T>::Peek()
@@ -210,65 +135,80 @@ T Queue<T>::Peek()
 	return this->GetHead();
 }
 
-// Pop the top element from the queue, returning its value
+// Add an element to the back of the queue
+template <class T>
+void Queue<T>::Push(T data)
+{
+	QueueNode<T>* pNewNode = new QueueNode<T>(data);
+
+	if (this->GetHead() == nullptr)
+	{
+		this->SetHead(pNewNode);
+		this->SetTail(pNewNode);		
+	}
+	else
+	{
+		QueueNode<T>* currentNode = this->GetTail();
+
+		while ((currentNode->GetData() > pNewNode->GetData()) &&
+			(currentNode != this->GetHead()))
+		{
+			if (currentNode->GetNext() != nullptr)
+			{
+				currentNode = currentNode->GetNext();
+			}
+			else
+			{
+				currentNode = this->GetHead();
+			}
+		}
+
+		if (currentNode == this->GetTail())
+		{
+			pNewNode->SetPrevious(nullptr);
+			pNewNode->SetNext(currentNode);
+			currentNode->SetPrevious(pNewNode);
+			this->SetTail(pNewNode);
+		}
+		else if (currentNode == this->GetHead())
+		{
+			if ((currentNode->GetData() < this->GetHead()->GetData()) ||
+				(pNewNode->GetData() < currentNode->GetData()))
+			{
+				pNewNode->SetNext(nullptr);
+				pNewNode->SetPrevious(currentNode);
+				currentNode->SetNext(pNewNode);
+				this->SetHead(pNewNode);
+			}
+			else
+			{
+				pNewNode->SetNext(this->GetHead());
+				this->GetHead()->GetPrevious()->SetNext(pNewNode);
+				pNewNode->SetPrevious(this->GetHead()->GetPrevious());
+				this->GetHead()->SetPrevious(pNewNode);
+			}
+			
+		}
+		else
+		{
+			currentNode->GetPrevious()->SetNext(pNewNode);
+			pNewNode->SetPrevious(currentNode->GetPrevious());
+			currentNode->SetPrevious(pNewNode);
+			pNewNode->SetNext(currentNode);
+		}
+	}
+
+	this->size++;
+}
+
+// Remove an element from the back of the queue
 template <class T>
 T Queue<T>::Pop()
 {
 	if (this->GetSize() > 0)
 	{
-		T tempVal = this->GetHead()->GetData();
-		this->SetHead(this->GetHead()->GetPrevious());
-
-		this->queueList.pop_front();
-
-		if (this->GetHead() != nullptr)
-		{
-			delete(this->GetHead()->GetNext());
-			this->GetHead()->SetNext(nullptr);
-		}
-		else
-		{
-			delete(this->GetTail());
-		}
-
-		return tempVal;
-	}
-}
-
-// Add an element to the back of the queue
-template <class T>
-void Queue<T>::Enqueue(T data)
-{
-	QueueNode<T>* pNewNode = new QueueNode<T>(data);
-
-	if (this->queueList.size() == 0)
-	{
-		this->SetHead(pNewNode);
-		this->SetTail(pNewNode);
-
-		pNewNode->SetPrevious(nullptr);
-	}
-	else
-	{
-		pNewNode->SetNext(this->GetTail());
-		this->GetTail()->SetPrevious(pNewNode);
-		this->SetTail(pNewNode);
-		this->GetTail()->SetPrevious(nullptr);
-	}
-
-	this->queueList.push_back(pNewNode);
-}
-
-// Remove an element from the back of the queue
-template <class T>
-T Queue<T>::DequeueBack()
-{
-	if (this->GetSize() > 0)
-	{
 		T tempVal = this->GetTail()->GetData();
 		this->SetTail(this->GetTail()->GetNext());
-
-		this->queueList.pop_back();
 
 		if (this->GetTail() != nullptr)
 		{
@@ -279,6 +219,8 @@ T Queue<T>::DequeueBack()
 		{
 			delete(this->GetHead());
 		}
+
+		this->size--;
 
 		return tempVal;
 	}
@@ -305,11 +247,14 @@ void Queue<T>::Print(std::string title)
 	int counter = 0;
 		
 	std::cout << title;
-	
-	for (QueueNode<T>* node : this->queueList)
-	{
-		std::cout << "    " << node->GetData();
 
+	QueueNode<T>* currentNode = this->GetHead();
+	
+	while (currentNode->GetData() != NULL)
+	{
+		std::cout << "    " << currentNode->GetData();
+
+		currentNode = currentNode->GetPrevious();
 		counter++;
 	}
 
@@ -328,10 +273,13 @@ void Queue<T>::Print()
 		std::cout << "    Top of queue is on the left" << std::endl << std::endl;
 	}	
 
-	for (QueueNode<T>* node : this->queueList)
-	{
-		std::cout << "    " << node->GetData();
+	QueueNode<T> currentNode = this->GetHead();
 
+	while (currentNode->GetData() != NULL)
+	{
+		std::cout << "    " << currentNode->GetData();
+
+		currentNode = currentNode.GetNext();
 		counter++;
 	}
 

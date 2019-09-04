@@ -78,9 +78,9 @@ namespace TemplatedQueue
 int main()
 {
 	TestInts();
-	TestFloats();
+	/*TestFloats();
 	TestChars();
-	TestDoubles();
+	TestDoubles();*/
 }
 
 void TestInts()
@@ -91,25 +91,6 @@ void TestInts()
 	// Creating the first test queue with INT data type
 	Queue<int> testQueue1;
 
-	// Pushing 5 numbers into the queue
-	std::cout << "Pushing numbers onto the testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::intOdd[i] << " ";
-		testQueue1.Push(TemplatedQueue::intOdd[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished pushing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
 	// Enqueueing 5 numbers onto the queue
 	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
 
@@ -117,8 +98,16 @@ void TestInts()
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << TemplatedQueue::intEven[i] << " ";
-		testQueue1.Enqueue(TemplatedQueue::intEven[i]);
+		testQueue1.Push(TemplatedQueue::intEven[i]);
 	}
+
+	testQueue1.Push(1);
+	testQueue1.Push(3);
+	testQueue1.Push(12);
+	testQueue1.Push(7);
+	testQueue1.Push(5);
+	testQueue1.Push(9);
+
 
 	std::cout << std::endl << std::endl;
 
@@ -136,26 +125,8 @@ void TestInts()
 	// Creating a copy of testQueue1 named testQueue2 using copy constructor
 	std::cout << "Creating a copy of testQueue1" << std::endl << std::endl;
 
-	Queue<int> testQueue2 = testQueue1;
-
-	// Pushing 5 big numbers into testQueue1
-	std::cout << "Pushing 5 big numbers into testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::intBigNumQueue1[i] << " ";
-		testQueue1.Push(TemplatedQueue::intBigNumQueue1[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Finished pushing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	// Printing testQueue1
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
+	//Queue<int> testQueue2 = testQueue1;
+	Queue<int> testQueue2;
 
 	// Enqueueing 5 big numbers onto testQueue1
 	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
@@ -164,7 +135,7 @@ void TestInts()
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << TemplatedQueue::intBigNumQueue2[i] << " ";
-		testQueue2.Enqueue(TemplatedQueue::intBigNumQueue2[i]);
+		testQueue2.Push(TemplatedQueue::intBigNumQueue2[i]);
 	}
 
 	std::cout << std::endl << std::endl;
@@ -181,54 +152,35 @@ void TestInts()
 	// in the output even though the last 5 numbers will be different.
 
 
-	//**************************************************
-	//                  QUEUE 3 AND 4
-	//**************************************************
+	////**************************************************
+	////                  QUEUE 3 AND 4
+	////**************************************************
 
-	// Using copy assignment constructor to make copies of test queues
-	Queue<int> testQueue3;
-	testQueue3 = testQueue1;
+	//// Using copy assignment constructor to make copies of test queues
+	//Queue<int> testQueue3;
+	//testQueue3 = testQueue1;
 
-	Queue<int> testQueue4;
-	testQueue4 = testQueue2;
+	//Queue<int> testQueue4;
+	//testQueue4 = testQueue2;
 
-	// Enqueueing 5 even values onto testQueue3
-	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
+	//// Enqueueing 5 even values onto testQueue3
+	//std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
 
-	std::cout << "    --> enqueueing : ";
-	for (int i = (sizeof(TemplatedQueue::intEven) / sizeof(int)); i > 5; i--)
-	{
-		std::cout << TemplatedQueue::intEven[i - 1] << " ";
-		testQueue3.Enqueue(TemplatedQueue::intEven[i - 1]);
-	}
+	//std::cout << "    --> enqueueing : ";
+	//for (int i = (sizeof(TemplatedQueue::intEven) / sizeof(int)); i > 5; i--)
+	//{
+	//	std::cout << TemplatedQueue::intEven[i - 1] << " ";
+	//	testQueue3.Push(TemplatedQueue::intEven[i - 1]);
+	//}
 
-	std::cout << std::endl << std::endl;
+	//std::cout << std::endl << std::endl;
 
-	// Printing the current queue
-	std::cout << "Finished enqueueing into testQueue3" << std::endl;
-	std::cout << "Printing testQueue3" << std::endl << std::endl;
+	//// Printing the current queue
+	//std::cout << "Finished enqueueing into testQueue3" << std::endl;
+	//std::cout << "Printing testQueue3" << std::endl << std::endl;
 
-	testQueue3.Print("testQueue3 :");
-	std::cout << std::endl;
-
-	// Pushing 5 odd values onto testQueue4
-	std::cout << "Pushing numbers onto the testQueue4" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = (sizeof(TemplatedQueue::intOdd) / sizeof(int)); i > 5; i--)
-	{
-		std::cout << TemplatedQueue::intOdd[i - 1] << " ";
-		testQueue4.Push(TemplatedQueue::intOdd[i - 1]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished pushing onto testQueue4" << std::endl;
-	std::cout << "Printing testQueue4" << std::endl << std::endl;
-
-	testQueue4.Print("testQueue4 :");
-	std::cout << std::endl;
+	//testQueue3.Print("testQueue3 :");
+	//std::cout << std::endl;
 
 	// Printing Queues 1 through 4 to show they are all different
 	std::cout << "Printing Queues 1 through 4 to show they are all different" << std::endl;
@@ -236,8 +188,8 @@ void TestInts()
 
 	testQueue1.Print("testQueue1 :");
 	testQueue2.Print("testQueue2 :");
-	testQueue3.Print("testQueue3 :");
-	testQueue4.Print("testQueue4 :");
+	//testQueue3.Print("testQueue3 :");
+	//testQueue4.Print("testQueue4 :");
 
 	std::cout << std::endl;
 	// Dequeueing everything from testQueue1
@@ -246,17 +198,17 @@ void TestInts()
 	std::cout << "    --> dequeueing : ";
 	while (!testQueue1.IsEmpty())
 	{
-		std::cout << testQueue1.DequeueBack() << " ";
+		std::cout << testQueue1.Pop() << " ";
 	}
 
 	std::cout << std::endl << std::endl;
 
 	std::cout << "testQueue1 is now empty" << std::endl << std::endl;
 
-	// Popping everything from testQueue2
-	std::cout << "Popping everything from testQueue 2" << std::endl << std::endl;
+	// Dequeueing everything from testQueue3
+	std::cout << "Dequeueing everything from testQueue2" << std::endl << std::endl;
 
-	std::cout << "    --> popping    : ";
+	std::cout << "    --> dequeueing : ";
 	while (!testQueue2.IsEmpty())
 	{
 		std::cout << testQueue2.Pop() << " ";
@@ -265,660 +217,634 @@ void TestInts()
 	std::cout << std::endl << std::endl;
 
 	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
-
-	// Dequeueing everything from testQueue3
-	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
-
-	std::cout << "    --> dequeueing : ";
-	while (!testQueue3.IsEmpty())
-	{
-		std::cout << testQueue3.DequeueBack() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue3 is now empty" << std::endl << std::endl;
-
-	// Popping everything from testQueue4
-	std::cout << "Popping everything from testQueue 4" << std::endl << std::endl;
-
-	std::cout << "    --> popping    : ";
-	while (!testQueue4.IsEmpty())
-	{
-		std::cout << testQueue4.Pop() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue4 is now empty" << std::endl << std::endl;
 }
 
-void TestFloats()
-{
-	//**************************************************
-	//                    QUEUE 1
-	//**************************************************
-	// Creating the first test queue with INT data type
-	Queue<float> testQueue1;
-
-	// Pushing 5 numbers into the queue
-	std::cout << "Pushing numbers onto the testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::floatOdd[i] << " ";
-		testQueue1.Push(TemplatedQueue::floatOdd[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished pushing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	// Enqueueing 5 numbers onto the queue
-	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::floatEven[i] << " ";
-		testQueue1.Enqueue(TemplatedQueue::floatEven[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished enqueueing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	//**************************************************
-	//                    QUEUE 2
-	//**************************************************
-
-	// Creating a copy of testQueue1 named testQueue2 using copy constructor
-	std::cout << "Creating a copy of testQueue1" << std::endl << std::endl;
-
-	Queue<float> testQueue2 = testQueue1;
-
-	// Pushing 5 big numbers into testQueue1
-	std::cout << "Pushing 5 big numbers into testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::floatBigNumQueue1[i] << " ";
-		testQueue1.Push(TemplatedQueue::floatBigNumQueue1[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Finished pushing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	// Printing testQueue1
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	// Enqueueing 5 big numbers onto testQueue1
-	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::floatBigNumQueue2[i] << " ";
-		testQueue2.Enqueue(TemplatedQueue::floatBigNumQueue2[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Finished enqueueing onto testQueue2" << std::endl;
-	std::cout << "Printing testQueue2" << std::endl << std::endl;
-
-	// Printing testQueue2
-	testQueue2.Print("testQueue2 :");
-	std::cout << std::endl;
-
-	// ****** PLEASE NOTE ******
-	// I'm dequeueing the one queue and popping the other queue, so the values should have the same order
-	// in the output even though the last 5 numbers will be different.
-
-
-	//**************************************************
-	//                  QUEUE 3 AND 4
-	//**************************************************
-
-	// Using copy assignment constructor to make copies of test queues
-	Queue<float> testQueue3;
-	testQueue3 = testQueue1;
-
-	Queue<float> testQueue4;
-	testQueue4 = testQueue2;
-
-	// Enqueueing 5 even values onto testQueue3
-	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = (sizeof(TemplatedQueue::floatEven) / sizeof(int)); i > 5; i--)
-	{
-		std::cout << TemplatedQueue::floatEven[i - 1] << " ";
-		testQueue3.Enqueue(TemplatedQueue::floatEven[i - 1]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished enqueueing into testQueue3" << std::endl;
-	std::cout << "Printing testQueue3" << std::endl << std::endl;
-
-	testQueue3.Print("testQueue3 :");
-	std::cout << std::endl;
-
-	// Pushing 5 odd values onto testQueue4
-	std::cout << "Pushing numbers onto the testQueue4" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = (sizeof(TemplatedQueue::floatOdd) / sizeof(int)); i > 5; i--)
-	{
-		std::cout << TemplatedQueue::floatOdd[i - 1] << " ";
-		testQueue4.Push(TemplatedQueue::floatOdd[i - 1]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished pushing onto testQueue4" << std::endl;
-	std::cout << "Printing testQueue4" << std::endl << std::endl;
-
-	testQueue4.Print("testQueue4 :");
-	std::cout << std::endl;
-
-	// Printing Queues 1 through 4 to show they are all different
-	std::cout << "Printing Queues 1 through 4 to show they are all different" << std::endl;
-	std::cout << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	testQueue2.Print("testQueue2 :");
-	testQueue3.Print("testQueue3 :");
-	testQueue4.Print("testQueue4 :");
-
-	std::cout << std::endl;
-	// Dequeueing everything from testQueue1
-	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> dequeueing : ";
-	while (!testQueue1.IsEmpty())
-	{
-		std::cout << testQueue1.DequeueBack() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue1 is now empty" << std::endl << std::endl;
-
-	// Popping everything from testQueue2
-	std::cout << "Popping everything from testQueue 2" << std::endl << std::endl;
-
-	std::cout << "    --> popping    : ";
-	while (!testQueue2.IsEmpty())
-	{
-		std::cout << testQueue2.Pop() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
-
-	// Dequeueing everything from testQueue3
-	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
-
-	std::cout << "    --> dequeueing : ";
-	while (!testQueue3.IsEmpty())
-	{
-		std::cout << testQueue3.DequeueBack() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue3 is now empty" << std::endl << std::endl;
-
-	// Popping everything from testQueue4
-	std::cout << "Popping everything from testQueue 4" << std::endl << std::endl;
-
-	std::cout << "    --> popping    : ";
-	while (!testQueue4.IsEmpty())
-	{
-		std::cout << testQueue4.Pop() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue4 is now empty" << std::endl << std::endl;
-}
-
-void TestChars()
-{
-	//**************************************************
-	//                    QUEUE 1
-	//**************************************************
-	// Creating the first test queue with INT data type
-	Queue<char> testQueue1;
-
-	// Pushing 5 numbers into the queue
-	std::cout << "Pushing numbers onto the testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::charLowerA[i] << " ";
-		testQueue1.Push(TemplatedQueue::charLowerA[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished pushing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	// Enqueueing 5 numbers onto the queue
-	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::charUpperA[i] << " ";
-		testQueue1.Enqueue(TemplatedQueue::charUpperA[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished enqueueing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	//**************************************************
-	//                    QUEUE 2
-	//**************************************************
-
-	// Creating a copy of testQueue1 named testQueue2 using copy constructor
-	std::cout << "Creating a copy of testQueue1" << std::endl << std::endl;
-
-	Queue<char> testQueue2 = testQueue1;
-
-	// Pushing 5 big numbers into testQueue1
-	std::cout << "Pushing 5 big numbers into testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::charLowerQueue1Z[i] << " ";
-		testQueue1.Push(TemplatedQueue::charLowerQueue1Z[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Finished pushing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	// Printing testQueue1
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	// Enqueueing 5 big numbers onto testQueue1
-	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::charUpperQueue2Z[i] << " ";
-		testQueue2.Enqueue(TemplatedQueue::charUpperQueue2Z[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Finished enqueueing onto testQueue2" << std::endl;
-	std::cout << "Printing testQueue2" << std::endl << std::endl;
-
-	// Printing testQueue2
-	testQueue2.Print("testQueue2 :");
-	std::cout << std::endl;
-
-	// ****** PLEASE NOTE ******
-	// I'm dequeueing the one queue and popping the other queue, so the values should have the same order
-	// in the output even though the last 5 numbers will be different.
-
-
-	//**************************************************
-	//                  QUEUE 3 AND 4
-	//**************************************************
-
-	// Using copy assignment constructor to make copies of test queues
-	Queue<char> testQueue3;
-	testQueue3 = testQueue1;
-
-	Queue<char> testQueue4;
-	testQueue4 = testQueue2;
-
-	// Enqueueing 5 even values onto testQueue3
-	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = sizeof(TemplatedQueue::charUpperA); i > 5; i--)
-	{
-		std::cout << TemplatedQueue::charUpperA[i - 1] << " ";
-		testQueue3.Enqueue(TemplatedQueue::charUpperA[i - 1]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished enqueueing into testQueue3" << std::endl;
-	std::cout << "Printing testQueue3" << std::endl << std::endl;
-
-	testQueue3.Print("testQueue3 :");
-	std::cout << std::endl;
-
-	// Pushing 5 odd values onto testQueue4
-	std::cout << "Pushing numbers onto the testQueue4" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = sizeof(TemplatedQueue::charLowerA); i > 5; i--)
-	{
-		std::cout << TemplatedQueue::charLowerA[i - 1] << " ";
-		testQueue4.Push(TemplatedQueue::charLowerA[i - 1]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished pushing onto testQueue4" << std::endl;
-	std::cout << "Printing testQueue4" << std::endl << std::endl;
-
-	testQueue4.Print("testQueue4 :");
-	std::cout << std::endl;
-
-	// Printing Queues 1 through 4 to show they are all different
-	std::cout << "Printing Queues 1 through 4 to show they are all different" << std::endl;
-	std::cout << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	testQueue2.Print("testQueue2 :");
-	testQueue3.Print("testQueue3 :");
-	testQueue4.Print("testQueue4 :");
-
-	std::cout << std::endl;
-	// Dequeueing everything from testQueue1
-	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> dequeueing : ";
-	while (!testQueue1.IsEmpty())
-	{
-		std::cout << testQueue1.DequeueBack() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue1 is now empty" << std::endl << std::endl;
-
-	// Popping everything from testQueue2
-	std::cout << "Popping everything from testQueue 2" << std::endl << std::endl;
-
-	std::cout << "    --> popping    : ";
-	while (!testQueue2.IsEmpty())
-	{
-		std::cout << testQueue2.Pop() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
-
-	// Dequeueing everything from testQueue3
-	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
-
-	std::cout << "    --> dequeueing : ";
-	while (!testQueue3.IsEmpty())
-	{
-		std::cout << testQueue3.DequeueBack() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue3 is now empty" << std::endl << std::endl;
-
-	// Popping everything from testQueue4
-	std::cout << "Popping everything from testQueue 4" << std::endl << std::endl;
-
-	std::cout << "    --> popping    : ";
-	while (!testQueue4.IsEmpty())
-	{
-		std::cout << testQueue4.Pop() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue4 is now empty" << std::endl << std::endl;
-}
-
-void TestDoubles()
-{
-	//**************************************************
-	//                    QUEUE 1
-	//**************************************************
-	// Creating the first test queue with INT data type
-	Queue<double> testQueue1;
-
-	// Pushing 5 numbers into the queue
-	std::cout << "Pushing numbers onto the testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::doubleOdd[i] << " ";
-		testQueue1.Push(TemplatedQueue::doubleOdd[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished pushing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	// Enqueueing 5 numbers onto the queue
-	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::doubleEven[i] << " ";
-		testQueue1.Enqueue(TemplatedQueue::doubleEven[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished enqueueing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	//**************************************************
-	//                    QUEUE 2
-	//**************************************************
-
-	// Creating a copy of testQueue1 named testQueue2 using copy constructor
-	std::cout << "Creating a copy of testQueue1" << std::endl << std::endl;
-
-	Queue<double> testQueue2 = testQueue1;
-
-	// Pushing 5 big numbers into testQueue1
-	std::cout << "Pushing 5 big numbers into testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::doubleBigNumQueue1[i] << " ";
-		testQueue1.Push(TemplatedQueue::doubleBigNumQueue1[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Finished pushing onto testQueue1" << std::endl;
-	std::cout << "Printing testQueue1" << std::endl << std::endl;
-
-	// Printing testQueue1
-	testQueue1.Print("testQueue1 :");
-	std::cout << std::endl;
-
-	// Enqueueing 5 big numbers onto testQueue1
-	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << TemplatedQueue::doubleBigNumQueue2[i] << " ";
-		testQueue2.Enqueue(TemplatedQueue::doubleBigNumQueue2[i]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "Finished enqueueing onto testQueue2" << std::endl;
-	std::cout << "Printing testQueue2" << std::endl << std::endl;
-
-	// Printing testQueue2
-	testQueue2.Print("testQueue2 :");
-	std::cout << std::endl;
-
-	// ****** PLEASE NOTE ******
-	// I'm dequeueing the one queue and popping the other queue, so the values should have the same order
-	// in the output even though the last 5 numbers will be different.
-
-
-	//**************************************************
-	//                  QUEUE 3 AND 4
-	//**************************************************
-
-	// Using copy assignment constructor to make copies of test queues
-	Queue<double> testQueue3;
-	testQueue3 = testQueue1;
-
-	Queue<double> testQueue4;
-	testQueue4 = testQueue2;
-
-	// Enqueueing 5 even values onto testQueue3
-	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
-
-	std::cout << "    --> enqueueing : ";
-	for (int i = (sizeof(TemplatedQueue::doubleEven) / sizeof(double)); i > 5; i--)
-	{
-		std::cout << TemplatedQueue::doubleEven[i - 1] << " ";
-		testQueue3.Enqueue(TemplatedQueue::doubleEven[i - 1]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished enqueueing into testQueue3" << std::endl;
-	std::cout << "Printing testQueue3" << std::endl << std::endl;
-
-	testQueue3.Print("testQueue3 :");
-	std::cout << std::endl;
-
-	// Pushing 5 odd values onto testQueue4
-	std::cout << "Pushing numbers onto the testQueue4" << std::endl << std::endl;
-
-	std::cout << "    --> pushing : ";
-	for (int i = (sizeof(TemplatedQueue::doubleOdd) / sizeof(double)); i > 5; i--)
-	{
-		std::cout << TemplatedQueue::doubleOdd[i - 1] << " ";
-		testQueue4.Push(TemplatedQueue::doubleOdd[i - 1]);
-	}
-
-	std::cout << std::endl << std::endl;
-
-	// Printing the current queue
-	std::cout << "Finished pushing onto testQueue4" << std::endl;
-	std::cout << "Printing testQueue4" << std::endl << std::endl;
-
-	testQueue4.Print("testQueue4 :");
-	std::cout << std::endl;
-
-	// Printing Queues 1 through 4 to show they are all different
-	std::cout << "Printing Queues 1 through 4 to show they are all different" << std::endl;
-	std::cout << std::endl << std::endl;
-
-	testQueue1.Print("testQueue1 :");
-	testQueue2.Print("testQueue2 :");
-	testQueue3.Print("testQueue3 :");
-	testQueue4.Print("testQueue4 :");
-
-	std::cout << std::endl;
-	// Dequeueing everything from testQueue1
-	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
-
-	std::cout << "    --> dequeueing : ";
-	while (!testQueue1.IsEmpty())
-	{
-		std::cout << testQueue1.DequeueBack() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue1 is now empty" << std::endl << std::endl;
-
-	// Popping everything from testQueue2
-	std::cout << "Popping everything from testQueue 2" << std::endl << std::endl;
-
-	std::cout << "    --> popping    : ";
-	while (!testQueue2.IsEmpty())
-	{
-		std::cout << testQueue2.Pop() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
-
-	// Dequeueing everything from testQueue3
-	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
-
-	std::cout << "    --> dequeueing : ";
-	while (!testQueue3.IsEmpty())
-	{
-		std::cout << testQueue3.DequeueBack() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue3 is now empty" << std::endl << std::endl;
-
-	// Popping everything from testQueue4
-	std::cout << "Popping everything from testQueue 4" << std::endl << std::endl;
-
-	std::cout << "    --> popping    : ";
-	while (!testQueue4.IsEmpty())
-	{
-		std::cout << testQueue4.Pop() << " ";
-	}
-
-	std::cout << std::endl << std::endl;
-
-	std::cout << "testQueue4 is now empty" << std::endl << std::endl;
-}
+//void TestFloats()
+//{
+//	//**************************************************
+//	//                    QUEUE 1
+//	//**************************************************
+//	// Creating the first test queue with INT data type
+//	Queue<float> testQueue1;
+//
+//	// Pushing 5 numbers into the queue
+//	std::cout << "Pushing numbers onto the testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::floatOdd[i] << " ";
+//		testQueue1.Push(TemplatedQueue::floatOdd[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished pushing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	// Enqueueing 5 numbers onto the queue
+//	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::floatEven[i] << " ";
+//		testQueue1.Push(TemplatedQueue::floatEven[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished enqueueing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	//**************************************************
+//	//                    QUEUE 2
+//	//**************************************************
+//
+//	// Creating a copy of testQueue1 named testQueue2 using copy constructor
+//	std::cout << "Creating a copy of testQueue1" << std::endl << std::endl;
+//
+//	Queue<float> testQueue2 = testQueue1;
+//
+//	// Pushing 5 big numbers into testQueue1
+//	std::cout << "Pushing 5 big numbers into testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::floatBigNumQueue1[i] << " ";
+//		testQueue1.Push(TemplatedQueue::floatBigNumQueue1[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "Finished pushing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	// Printing testQueue1
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	// Enqueueing 5 big numbers onto testQueue1
+//	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::floatBigNumQueue2[i] << " ";
+//		testQueue2.Push(TemplatedQueue::floatBigNumQueue2[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "Finished enqueueing onto testQueue2" << std::endl;
+//	std::cout << "Printing testQueue2" << std::endl << std::endl;
+//
+//	// Printing testQueue2
+//	testQueue2.Print("testQueue2 :");
+//	std::cout << std::endl;
+//
+//	// ****** PLEASE NOTE ******
+//	// I'm dequeueing the one queue and popping the other queue, so the values should have the same order
+//	// in the output even though the last 5 numbers will be different.
+//
+//
+//	//**************************************************
+//	//                  QUEUE 3 AND 4
+//	//**************************************************
+//
+//	// Using copy assignment constructor to make copies of test queues
+//	Queue<float> testQueue3;
+//	testQueue3 = testQueue1;
+//
+//	Queue<float> testQueue4;
+//	testQueue4 = testQueue2;
+//
+//	// Enqueueing 5 even values onto testQueue3
+//	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = (sizeof(TemplatedQueue::floatEven) / sizeof(int)); i > 5; i--)
+//	{
+//		std::cout << TemplatedQueue::floatEven[i - 1] << " ";
+//		testQueue3.Push(TemplatedQueue::floatEven[i - 1]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished enqueueing into testQueue3" << std::endl;
+//	std::cout << "Printing testQueue3" << std::endl << std::endl;
+//
+//	testQueue3.Print("testQueue3 :");
+//	std::cout << std::endl;
+//
+//	// Pushing 5 odd values onto testQueue4
+//	std::cout << "Pushing numbers onto the testQueue4" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = (sizeof(TemplatedQueue::floatOdd) / sizeof(int)); i > 5; i--)
+//	{
+//		std::cout << TemplatedQueue::floatOdd[i - 1] << " ";
+//		testQueue4.Push(TemplatedQueue::floatOdd[i - 1]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished pushing onto testQueue4" << std::endl;
+//	std::cout << "Printing testQueue4" << std::endl << std::endl;
+//
+//	testQueue4.Print("testQueue4 :");
+//	std::cout << std::endl;
+//
+//	// Printing Queues 1 through 4 to show they are all different
+//	std::cout << "Printing Queues 1 through 4 to show they are all different" << std::endl;
+//	std::cout << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	testQueue2.Print("testQueue2 :");
+//	testQueue3.Print("testQueue3 :");
+//	testQueue4.Print("testQueue4 :");
+//
+//	std::cout << std::endl;
+//	// Dequeueing everything from testQueue1
+//	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> dequeueing : ";
+//	while (!testQueue1.IsEmpty())
+//	{
+//		std::cout << testQueue1.DequeueBack() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue1 is now empty" << std::endl << std::endl;
+//
+//	// Popping everything from testQueue2
+//	std::cout << "Popping everything from testQueue 2" << std::endl << std::endl;
+//
+//	std::cout << "    --> popping    : ";
+//	while (!testQueue2.IsEmpty())
+//	{
+//		std::cout << testQueue2.Pop() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
+//
+//	// Dequeueing everything from testQueue3
+//	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
+//
+//	std::cout << "    --> dequeueing : ";
+//	while (!testQueue3.IsEmpty())
+//	{
+//		std::cout << testQueue3.DequeueBack() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue3 is now empty" << std::endl << std::endl;
+//
+//	// Popping everything from testQueue4
+//	std::cout << "Popping everything from testQueue 4" << std::endl << std::endl;
+//
+//	std::cout << "    --> popping    : ";
+//	while (!testQueue4.IsEmpty())
+//	{
+//		std::cout << testQueue4.Pop() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue4 is now empty" << std::endl << std::endl;
+//}
+//
+//void TestChars()
+//{
+//	//**************************************************
+//	//                    QUEUE 1
+//	//**************************************************
+//	// Creating the first test queue with INT data type
+//	Queue<char> testQueue1;
+//
+//	// Pushing 5 numbers into the queue
+//	std::cout << "Pushing numbers onto the testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::charLowerA[i] << " ";
+//		testQueue1.Push(TemplatedQueue::charLowerA[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished pushing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	// Enqueueing 5 numbers onto the queue
+//	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::charUpperA[i] << " ";
+//		testQueue1.Push(TemplatedQueue::charUpperA[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished enqueueing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	//**************************************************
+//	//                    QUEUE 2
+//	//**************************************************
+//
+//	// Creating a copy of testQueue1 named testQueue2 using copy constructor
+//	std::cout << "Creating a copy of testQueue1" << std::endl << std::endl;
+//
+//	Queue<char> testQueue2 = testQueue1;
+//
+//	// Pushing 5 big numbers into testQueue1
+//	std::cout << "Pushing 5 big numbers into testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::charLowerQueue1Z[i] << " ";
+//		testQueue1.Push(TemplatedQueue::charLowerQueue1Z[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "Finished pushing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	// Printing testQueue1
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	// Enqueueing 5 big numbers onto testQueue1
+//	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::charUpperQueue2Z[i] << " ";
+//		testQueue2.Push(TemplatedQueue::charUpperQueue2Z[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "Finished enqueueing onto testQueue2" << std::endl;
+//	std::cout << "Printing testQueue2" << std::endl << std::endl;
+//
+//	// Printing testQueue2
+//	testQueue2.Print("testQueue2 :");
+//	std::cout << std::endl;
+//
+//	// ****** PLEASE NOTE ******
+//	// I'm dequeueing the one queue and popping the other queue, so the values should have the same order
+//	// in the output even though the last 5 numbers will be different.
+//
+//
+//	//**************************************************
+//	//                  QUEUE 3 AND 4
+//	//**************************************************
+//
+//	// Using copy assignment constructor to make copies of test queues
+//	Queue<char> testQueue3;
+//	testQueue3 = testQueue1;
+//
+//	Queue<char> testQueue4;
+//	testQueue4 = testQueue2;
+//
+//	// Enqueueing 5 even values onto testQueue3
+//	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = sizeof(TemplatedQueue::charUpperA); i > 5; i--)
+//	{
+//		std::cout << TemplatedQueue::charUpperA[i - 1] << " ";
+//		testQueue3.Push(TemplatedQueue::charUpperA[i - 1]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished enqueueing into testQueue3" << std::endl;
+//	std::cout << "Printing testQueue3" << std::endl << std::endl;
+//
+//	testQueue3.Print("testQueue3 :");
+//	std::cout << std::endl;
+//
+//	// Pushing 5 odd values onto testQueue4
+//	std::cout << "Pushing numbers onto the testQueue4" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = sizeof(TemplatedQueue::charLowerA); i > 5; i--)
+//	{
+//		std::cout << TemplatedQueue::charLowerA[i - 1] << " ";
+//		testQueue4.Push(TemplatedQueue::charLowerA[i - 1]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished pushing onto testQueue4" << std::endl;
+//	std::cout << "Printing testQueue4" << std::endl << std::endl;
+//
+//	testQueue4.Print("testQueue4 :");
+//	std::cout << std::endl;
+//
+//	// Printing Queues 1 through 4 to show they are all different
+//	std::cout << "Printing Queues 1 through 4 to show they are all different" << std::endl;
+//	std::cout << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	testQueue2.Print("testQueue2 :");
+//	testQueue3.Print("testQueue3 :");
+//	testQueue4.Print("testQueue4 :");
+//
+//	std::cout << std::endl;
+//	// Dequeueing everything from testQueue1
+//	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> dequeueing : ";
+//	while (!testQueue1.IsEmpty())
+//	{
+//		std::cout << testQueue1.DequeueBack() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue1 is now empty" << std::endl << std::endl;
+//
+//	// Popping everything from testQueue2
+//	std::cout << "Popping everything from testQueue 2" << std::endl << std::endl;
+//
+//	std::cout << "    --> popping    : ";
+//	while (!testQueue2.IsEmpty())
+//	{
+//		std::cout << testQueue2.Pop() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
+//
+//	// Dequeueing everything from testQueue3
+//	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
+//
+//	std::cout << "    --> dequeueing : ";
+//	while (!testQueue3.IsEmpty())
+//	{
+//		std::cout << testQueue3.DequeueBack() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue3 is now empty" << std::endl << std::endl;
+//
+//	// Popping everything from testQueue4
+//	std::cout << "Popping everything from testQueue 4" << std::endl << std::endl;
+//
+//	std::cout << "    --> popping    : ";
+//	while (!testQueue4.IsEmpty())
+//	{
+//		std::cout << testQueue4.Pop() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue4 is now empty" << std::endl << std::endl;
+//}
+//
+//void TestDoubles()
+//{
+//	//**************************************************
+//	//                    QUEUE 1
+//	//**************************************************
+//	// Creating the first test queue with INT data type
+//	Queue<double> testQueue1;
+//
+//	// Pushing 5 numbers into the queue
+//	std::cout << "Pushing numbers onto the testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::doubleOdd[i] << " ";
+//		testQueue1.Push(TemplatedQueue::doubleOdd[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished pushing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	// Enqueueing 5 numbers onto the queue
+//	std::cout << "Enqueueing number into testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::doubleEven[i] << " ";
+//		testQueue1.Push(TemplatedQueue::doubleEven[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished enqueueing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	//**************************************************
+//	//                    QUEUE 2
+//	//**************************************************
+//
+//	// Creating a copy of testQueue1 named testQueue2 using copy constructor
+//	std::cout << "Creating a copy of testQueue1" << std::endl << std::endl;
+//
+//	Queue<double> testQueue2 = testQueue1;
+//
+//	// Pushing 5 big numbers into testQueue1
+//	std::cout << "Pushing 5 big numbers into testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::doubleBigNumQueue1[i] << " ";
+//		testQueue1.Push(TemplatedQueue::doubleBigNumQueue1[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "Finished pushing onto testQueue1" << std::endl;
+//	std::cout << "Printing testQueue1" << std::endl << std::endl;
+//
+//	// Printing testQueue1
+//	testQueue1.Print("testQueue1 :");
+//	std::cout << std::endl;
+//
+//	// Enqueueing 5 big numbers onto testQueue1
+//	std::cout << "Enqueueing 5 big numbers onto testQueue2" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = 0; i < 5; i++)
+//	{
+//		std::cout << TemplatedQueue::doubleBigNumQueue2[i] << " ";
+//		testQueue2.Push(TemplatedQueue::doubleBigNumQueue2[i]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "Finished enqueueing onto testQueue2" << std::endl;
+//	std::cout << "Printing testQueue2" << std::endl << std::endl;
+//
+//	// Printing testQueue2
+//	testQueue2.Print("testQueue2 :");
+//	std::cout << std::endl;
+//
+//	// ****** PLEASE NOTE ******
+//	// I'm dequeueing the one queue and popping the other queue, so the values should have the same order
+//	// in the output even though the last 5 numbers will be different.
+//
+//
+//	//**************************************************
+//	//                  QUEUE 3 AND 4
+//	//**************************************************
+//
+//	// Using copy assignment constructor to make copies of test queues
+//	Queue<double> testQueue3;
+//	testQueue3 = testQueue1;
+//
+//	Queue<double> testQueue4;
+//	testQueue4 = testQueue2;
+//
+//	// Enqueueing 5 even values onto testQueue3
+//	std::cout << "Enqueueing numbers into the testQueue3" << std::endl << std::endl;
+//
+//	std::cout << "    --> enqueueing : ";
+//	for (int i = (sizeof(TemplatedQueue::doubleEven) / sizeof(double)); i > 5; i--)
+//	{
+//		std::cout << TemplatedQueue::doubleEven[i - 1] << " ";
+//		testQueue3.Push(TemplatedQueue::doubleEven[i - 1]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished enqueueing into testQueue3" << std::endl;
+//	std::cout << "Printing testQueue3" << std::endl << std::endl;
+//
+//	testQueue3.Print("testQueue3 :");
+//	std::cout << std::endl;
+//
+//	// Pushing 5 odd values onto testQueue4
+//	std::cout << "Pushing numbers onto the testQueue4" << std::endl << std::endl;
+//
+//	std::cout << "    --> pushing : ";
+//	for (int i = (sizeof(TemplatedQueue::doubleOdd) / sizeof(double)); i > 5; i--)
+//	{
+//		std::cout << TemplatedQueue::doubleOdd[i - 1] << " ";
+//		testQueue4.Push(TemplatedQueue::doubleOdd[i - 1]);
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	// Printing the current queue
+//	std::cout << "Finished pushing onto testQueue4" << std::endl;
+//	std::cout << "Printing testQueue4" << std::endl << std::endl;
+//
+//	testQueue4.Print("testQueue4 :");
+//	std::cout << std::endl;
+//
+//	// Printing Queues 1 through 4 to show they are all different
+//	std::cout << "Printing Queues 1 through 4 to show they are all different" << std::endl;
+//	std::cout << std::endl << std::endl;
+//
+//	testQueue1.Print("testQueue1 :");
+//	testQueue2.Print("testQueue2 :");
+//	testQueue3.Print("testQueue3 :");
+//	testQueue4.Print("testQueue4 :");
+//
+//	std::cout << std::endl;
+//	// Dequeueing everything from testQueue1
+//	std::cout << "Dequeueing everything from testQueue1" << std::endl << std::endl;
+//
+//	std::cout << "    --> dequeueing : ";
+//	while (!testQueue1.IsEmpty())
+//	{
+//		std::cout << testQueue1.DequeueBack() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue1 is now empty" << std::endl << std::endl;
+//
+//	// Popping everything from testQueue2
+//	std::cout << "Popping everything from testQueue 2" << std::endl << std::endl;
+//
+//	std::cout << "    --> popping    : ";
+//	while (!testQueue2.IsEmpty())
+//	{
+//		std::cout << testQueue2.Pop() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue2 is now empty" << std::endl << std::endl;
+//
+//	// Dequeueing everything from testQueue3
+//	std::cout << "Dequeueing everything from testQueue3" << std::endl << std::endl;
+//
+//	std::cout << "    --> dequeueing : ";
+//	while (!testQueue3.IsEmpty())
+//	{
+//		std::cout << testQueue3.DequeueBack() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue3 is now empty" << std::endl << std::endl;
+//
+//	// Popping everything from testQueue4
+//	std::cout << "Popping everything from testQueue 4" << std::endl << std::endl;
+//
+//	std::cout << "    --> popping    : ";
+//	while (!testQueue4.IsEmpty())
+//	{
+//		std::cout << testQueue4.Pop() << " ";
+//	}
+//
+//	std::cout << std::endl << std::endl;
+//
+//	std::cout << "testQueue4 is now empty" << std::endl << std::endl;
+//}

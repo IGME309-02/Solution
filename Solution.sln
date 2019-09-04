@@ -11,34 +11,20 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HW1_TemplatedQueue", "HW1_T
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2D1832D-43D4-4ABE-A543-9CD97A1C5750}.Debug|x64.ActiveCfg = Debug|x64
-		{A2D1832D-43D4-4ABE-A543-9CD97A1C5750}.Debug|x64.Build.0 = Debug|x64
 		{A2D1832D-43D4-4ABE-A543-9CD97A1C5750}.Debug|x86.ActiveCfg = Debug|Win32
 		{A2D1832D-43D4-4ABE-A543-9CD97A1C5750}.Debug|x86.Build.0 = Debug|Win32
-		{A2D1832D-43D4-4ABE-A543-9CD97A1C5750}.Release|x64.ActiveCfg = Release|x64
-		{A2D1832D-43D4-4ABE-A543-9CD97A1C5750}.Release|x64.Build.0 = Release|x64
 		{A2D1832D-43D4-4ABE-A543-9CD97A1C5750}.Release|x86.ActiveCfg = Release|Win32
 		{A2D1832D-43D4-4ABE-A543-9CD97A1C5750}.Release|x86.Build.0 = Release|Win32
-		{DD11B6B6-AE8F-455D-92EE-3F2212E3667C}.Debug|x64.ActiveCfg = Debug|x64
-		{DD11B6B6-AE8F-455D-92EE-3F2212E3667C}.Debug|x64.Build.0 = Debug|x64
 		{DD11B6B6-AE8F-455D-92EE-3F2212E3667C}.Debug|x86.ActiveCfg = Debug|Win32
 		{DD11B6B6-AE8F-455D-92EE-3F2212E3667C}.Debug|x86.Build.0 = Debug|Win32
-		{DD11B6B6-AE8F-455D-92EE-3F2212E3667C}.Release|x64.ActiveCfg = Release|x64
-		{DD11B6B6-AE8F-455D-92EE-3F2212E3667C}.Release|x64.Build.0 = Release|x64
 		{DD11B6B6-AE8F-455D-92EE-3F2212E3667C}.Release|x86.ActiveCfg = Release|Win32
 		{DD11B6B6-AE8F-455D-92EE-3F2212E3667C}.Release|x86.Build.0 = Release|Win32
-		{10CA70A2-1CD9-4061-A88A-D4E4067894B0}.Debug|x64.ActiveCfg = Debug|x64
-		{10CA70A2-1CD9-4061-A88A-D4E4067894B0}.Debug|x64.Build.0 = Debug|x64
 		{10CA70A2-1CD9-4061-A88A-D4E4067894B0}.Debug|x86.ActiveCfg = Debug|Win32
 		{10CA70A2-1CD9-4061-A88A-D4E4067894B0}.Debug|x86.Build.0 = Debug|Win32
-		{10CA70A2-1CD9-4061-A88A-D4E4067894B0}.Release|x64.ActiveCfg = Release|x64
-		{10CA70A2-1CD9-4061-A88A-D4E4067894B0}.Release|x64.Build.0 = Release|x64
 		{10CA70A2-1CD9-4061-A88A-D4E4067894B0}.Release|x86.ActiveCfg = Release|Win32
 		{10CA70A2-1CD9-4061-A88A-D4E4067894B0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection

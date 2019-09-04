@@ -44,7 +44,7 @@ template <class T>
 QueueNode<T>::QueueNode(T data)
 {
     this->nextNode = nullptr;
-    this->data = 0;
+    this->data = NULL;
     this->previousNode = nullptr;
     this->SetData(data);
 }
@@ -81,7 +81,15 @@ void QueueNode<T>::SetData(T data)
 template <class T>
 T QueueNode<T>::GetData()
 {
-    return this->data;
+	if (this)
+	{
+		return this->data;
+	}
+	else
+	{
+		return NULL;
+	}
+    
 }
 
 template <class T>
